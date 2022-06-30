@@ -27,14 +27,14 @@ $file_content = fopen("./input.txt", "r") or die("Unable to open file!");
 $text =  fread($file_content,filesize("./input.txt"));
 fclose($file_content);
 
-$text_score = (new TextProcessor())->process($text);
-
-echo ToParagraph::toParagraph($text_score, 5);
+$text_score = (new TextProcessor())->process($input_text,$language);
+echo ToParagraph::toParagraph($text_score, $limit);
 
 ```
 
-* input_text : The paragraph needs to be shortened
-* limit : Desired number of sentences in the paragraph after being processed
+* $input_text : The paragraph needs to be shortened
+* $language : If it can't detect the language by itself, you can specify the language of the paragraph
+* $limit : Desired number of sentences in the paragraph after being processed
 
 ### Input : 
 

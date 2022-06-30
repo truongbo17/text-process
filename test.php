@@ -11,7 +11,6 @@ fclose($file_content);
 
 $time_start = microtime(true);
 
-$text_score = (new TextProcessor())->process($text);
-
+$text_score = (new TextProcessor())->process($text, 'vi');
 var_dump(ToParagraph::toParagraph($text_score, 5));
 echo 'Total execution time in seconds: ' . (microtime(true) - $time_start);

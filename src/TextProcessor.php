@@ -10,13 +10,15 @@ use Truongbo\Textscore\Entities\ToParagraph;
 class TextProcessor
 {
     protected array $contents = [];
+    protected ?string $language;
     protected array $skip_sentence_short = [
         'min_word'     => 5, //Loại bỏ những câu có dưới 5 từ
         'min_alphabet' => 32 //Lõại bỏ những câu có dưới 32 từ
     ];
 
-    public function process($content)
+    public function process($content, string $language = null)
     {
+        $this->language = $language;
         $content = $this->removeNoiseCharacters($content);
         $this->cleanContent($content);
         $this->ignoreChar();
@@ -79,7 +81,7 @@ class TextProcessor
         $origin_text = ToParagraph::originText($text_score);
 
         $sentences = Duplicate::markDuplicatedSentences($text_score);
-        $sentences_stopwords = StopWordScore::score($sentences);
+        $sentences_stopwords = StopWordScore::score($sentences, $this->language);
         $term_frequency_score = TermScore::input($sentences_stopwords, $origin_text);
         return Duplicate::score($term_frequency_score);
     }
