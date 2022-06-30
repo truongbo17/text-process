@@ -15,8 +15,5 @@
     ],
     "require": {
         "patrickschur/language-detection": "^5.2"
-    },
-    "require-dev": {
-        "symfony/var-dumper": "^6.0"
     }
 }
