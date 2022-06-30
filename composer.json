@@ -1,0 +1,22 @@
+{
+    "name": "truongbo/textscore",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Truongbo\\Textscore\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Nguyen Quang Truong",
+            "email": "truongnq017@gmail.com"
+        }
+    ],
+    "require": {
+        "patrickschur/language-detection": "^5.2"
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^6.0"
+    }
+}
