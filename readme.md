@@ -7,6 +7,14 @@
 
 ### Usage : 
 
+* Install
+
+```
+composer require truongbo/textscore
+```
+
+* Use
+
 ```
 <?php
 
